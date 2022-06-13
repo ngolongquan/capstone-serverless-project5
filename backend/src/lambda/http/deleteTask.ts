@@ -15,8 +15,7 @@ export const handler = middy(
           error: 'ERROR, this task item not found'
         })
       };
-    }
-    
+    }    
     return {
       statusCode: 202,
       headers: {
@@ -24,14 +23,12 @@ export const handler = middy(
         'Access-Control-Allow-Credentials': true
       },
       body: JSON.stringify({})
-    };
-    return undefined
+    };    
   }
 )
 
-handler  
-  .use(
-    cors({
-      credentials: true
-    })
-  )
+handler.use(
+  cors({
+    credentials: true
+  })
+)
