@@ -69,11 +69,11 @@ export async function updateTaskItem(event: APIGatewayProxyEvent,
 export async function deleteTaskItem(event: APIGatewayProxyEvent) {
     const taskId = event.pathParameters.taskId;
     const userId = getUserId(event);
-
+    console.log('taskId:' + taskId + "userId:"+userId );
     if (!(await taskAccess.getTaskItem(taskId, userId))) {
         return false;
     }
-    console.log('delete task  item by taskId:' + taskId + "userId:"+userId )
+    console.log('delete task  item by taskId:' + taskId + "userId:"+userId );
     await taskAccess.deleteTaskItem(taskId, userId);
 
     return true;
